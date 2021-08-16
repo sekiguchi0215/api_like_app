@@ -41,7 +41,7 @@ RSpec.describe "V1::Auth::Registrations", type: :request do
       it "エラーが発生する" do
         expect { subject }.to change { User.count }.by(0)
         res = JSON.parse(response.body)
-        expect(response).to have_http_status(:unprosessable_entity)
+        expect(response).to have_http_status(:unprocessable_entity)
         expect(res["errors"]["password"][0]).to include "を入力してください"
       end
     end
